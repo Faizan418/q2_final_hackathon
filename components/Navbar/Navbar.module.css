@@ -1,0 +1,145 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.name_and_icon {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+._selector {
+  outline: none;
+  background-color: #7e33e0;
+  color: white;
+}
+
+.upper_portion {
+  display: flex;
+  justify-content: space-around;
+  padding: 6px;
+  background-color: #7e33e0;
+  color: white;
+}
+.upper_portion_div_one,
+.upper_portion_div_two {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.lower_portion {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+}
+.title {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.lower_portion_div_two {
+  display: flex;
+  gap: 20px;
+}
+.ul_div {
+  display: flex;
+  gap: 20px;
+}
+.li {
+  list-style: none;
+  cursor: pointer;
+  font-size: smaller;
+}
+.li:hover {
+  color: #7e33e0;
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+}
+.input {
+  border: 1px solid rgb(223, 223, 223);
+  font-size: 13px;
+  outline: none;
+  width: 150px;
+  height: 27px;
+}
+.search_btn {
+  border: none;
+  background-color: #7e33e0;
+  color: white;
+  font-weight: bold;
+  padding: 6px 9px;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .upper_portion_div_one,
+  .upper_portion_div_two {
+    gap: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .lower_portion_div_two {
+    border: 1px solid black;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 3px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* background-color: #23005071; */
+
+  }
+  .ul_div {
+    flex-direction: column;
+    backdrop-filter: blur(4px);
+    padding: 30;
+  }
+  .search_bar {
+    display: none;
+  }
+  .li {
+    padding: 8px;
+    font-size: 15px;
+  }
+  .li:hover {
+    color: #7e33e0;
+    background: #a3a3a3;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .menu_open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+@media (max-width: 800px) {
+  .upper_portion {
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 500px) {
+  .upper_portion_div_one,
+  .upper_portion_div_two {
+    font-size: 11px;
+  }
+}

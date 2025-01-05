@@ -1,0 +1,167 @@
+.main_containar {
+  height: 100%;
+  background-color: #e7eaff;
+  padding: 20px 80px;
+  padding-top: 50px;
+}
+.containar {
+  height: 100%;
+  padding: 20px 10px;
+  align-items: center;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+.box {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr 1fr 1.5fr;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+}
+.card {
+  color: white;
+  align-items: center;
+}
+.headings_leftright {
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-weight: bold;
+  color: black;
+}
+.headings_center {
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-weight: bold;
+  color: black;
+}
+.Subscribe {
+  padding: 3px;
+  color: black;
+  font-weight: bolder;
+}
+.Get {
+  padding: 3px;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: bolder;
+}
+.peras {
+  padding: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  color: black;
+}
+.other {
+  border: 1px solid whitesmoke;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  display: flex;
+  width: 65%;
+  border-radius: 5px;
+  justify-content: space-between;
+  color: black;
+}
+.input {
+  outline: none;
+  color: white;
+  width: 100%;
+  font-size: 14px;
+  color: black;
+}
+.send_icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.last_box_pera {
+  font-size: 10px;
+  color: rgb(167, 167, 167);
+}
+.other_to_other {
+  display: flex;
+  padding: 1px;
+  cursor: pointer;
+}
+.o {
+  padding: 5px;
+}
+.t {
+  padding: 5px;
+}
+.social_icon_div {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 10px;
+}
+.icon_ {
+  height: 30px;
+  width: 30px;
+  padding: 7px;
+  border-radius: 50%;
+}
+.icon_:hover {
+  background-color: #0640ff;
+  color: black;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transform: scale(1.3);
+}
+.icon_:active {
+  transform: scale(1.2);
+  background-color: red;
+}
+
+.copyright {
+  margin-top: 12px;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(100, 100, 100);
+  cursor: pointer;
+  padding: 10px;
+}
+.Links:hover {
+  color: rgb(131, 131, 131);
+}
+
+@media (max-width: 1100px) {
+  .box {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .main_containar {
+    padding: 10px 50px;
+  }
+}
+@media (max-width: 600px) {
+  .box {
+    grid-template-columns: 1fr;
+  }
+  .input {
+    width: 130px;
+  }
+}
+@media (max-width: 700px) {
+  .main_containar {
+    padding: 10px 30px;
+  }
+}
+@media (max-width: 500px) {
+  .main_containar {
+    padding: 10px 10px;
+  }
+  .social_icon_div {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,144 @@
+.abcd {
+  /* border: 1px solid black; */
+  padding: 60px 150px;
+  height: 100%;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(224, 224, 224);
+}
+.efgh {
+  /* border: 1px solid black;  */
+  padding: 30px 20px;
+}
+@media (max-width: 600px) {
+  .abcd {
+    padding: 50px 50px;
+  }
+}
+@media (max-width: 400px) {
+  .abcd {
+    padding: 30px 30px;
+  }
+}
+
+/* 
+
+.main_container{
+    border: 1px solid black;
+    padding: 20px 10px;
+    align-items: center;
+    align-content: center;
+}
+.container{
+    border: 1px solid black;
+    align-items: center;
+    align-content: center;
+} */
+
+.main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: linear-gradient(to bottom right, #6a11cb, #2575fc); */
+}
+
+.container {
+  /* background-color: #fff; */
+  padding: 2rem;
+  border-radius: 12px;
+  /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); */
+  width: 100%;
+  max-width: 400px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #333;
+  text-align: center;
+}
+
+.para {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.input_div {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  /* border-color: #2575fc; */
+  box-shadow: 0 0 6px rgba(37, 117, 252, 0.3);
+}
+
+.btn {
+  background-color: #2575fc;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 50%;
+
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1b5bc8;
+  transition: ease-in 0.4s;
+  width: 100%;
+}
+
+.btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.last_link {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: bolder;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .para {
+    font-size: 0.9rem;
+  }
+
+  .input,
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
