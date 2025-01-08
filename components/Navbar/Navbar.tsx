@@ -24,11 +24,15 @@ const Navbar = () => {
             <span className={styles.name_and_icon}>
               <IoMailOutline className="text-lg" />
               <Link href="mailto:muhammadf4060@gmail.com">
-                muhammadf4060@gmail.com
+                G-Mail
               </Link>
             </span>
             <span className={styles.name_and_icon}>
-              <TbPhoneCall className="text-lg" /> (+92340)6044359
+              {/* <TbPhoneCall className="text-lg" /> (+92340)6044359 */}
+              <TbPhoneCall className="text-lg" />
+              <Link href="03406044359">
+                03406044359
+              </Link>
             </span>
           </div>
           <div className={styles.upper_portion_div_two}>
