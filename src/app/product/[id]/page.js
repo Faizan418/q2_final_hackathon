@@ -5,8 +5,6 @@ import styles from "./ProductDetails.module.css";
 import { FaOpencart } from "react-icons/fa";
 import Navbar from "../../../../components/Navbar/Navbar";
 import Footer from "../../../../components/Footer/Footer";
-import { useState } from "react";
-// import { useCart } from "../../context/CartContext";
 
 const prod = [
   {
@@ -175,8 +173,6 @@ export default function ProductDetails({ params }) {
     return <p>Product not found</p>;
   }
 
-  const [addCart, setaddCart] = useState(0)
-  
   return (
     <div>
       <Navbar cartValue={addCart}/>
@@ -216,7 +212,7 @@ export default function ProductDetails({ params }) {
             <span className={styles.oldPrice}>${product.oldPrice.toFixed(2)}</span>
           </div>
           <p className={styles.description}>{product.description}</p>
-          <button className={styles.addToCart}  onClick={() => setaddCart(addCart + 1)} >Add To Cart  <FaOpencart className="text-lg"/></button>
+          <button className={styles.addToCart} >Add To Cart  <FaOpencart className="text-lg"/></button>
           <div className={styles.meta}>
             <p><strong>Categories:</strong> {product.categories.join(", ")}</p>
             <p><strong>Tags:</strong> {product.tags.join(", ")}</p>
