@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./Section1.module.css";
+import Link from "next/link";
 
 const featuredProduct = [
   {
@@ -39,7 +40,8 @@ const Section1 = () => {
 
       <div className={styles.containar}>
         {featuredProduct.map((product) => (
-          <div key={product.id} className={styles.box}>
+          <Link href={`/product/${product.id}`} key={product.id}>
+          <div className={styles.box}>
             <div className={styles.img_div}>
               <Image
                 src={product.image}
@@ -55,6 +57,7 @@ const Section1 = () => {
             <p className={styles.code}>{product.code}</p>
             <p className={styles.price}>{product.price.toFixed(2)}</p>
           </div>
+          </Link>
         ))}
       </div>
     </div>

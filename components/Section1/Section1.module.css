@@ -34,7 +34,10 @@
 .box:hover{
     transform: scale(1.05);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-    background-color: rgb(190, 190, 190);
+    background-color: rgb(10, 81, 173);
+    .name,.code,.price{
+      color: white;
+    }
   }
 .img_div{
   /* border: 1px solid black; */

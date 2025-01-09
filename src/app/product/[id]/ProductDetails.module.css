@@ -1,0 +1,163 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh;
+  /* border: 1px solid black; */
+  align-content: center;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  /* border: 1px solid black; */
+}
+
+.imageSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  /* border: 1px solid rgb(255, 0, 0); */
+}
+
+.image {
+  border-radius: 10px;
+  max-width: 100%;
+  /* border: 1px solid black; */
+}
+
+.thumbnailContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  /* border: 1px solid black; */
+}
+
+.thumbnail {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  
+}
+
+.thumbnail:hover {
+  border-color: #0070f3;
+}
+
+.detailsSection {
+  flex: 1;
+  padding: 20px;
+  /* border: 1px solid black; */
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.rating {
+  color: #f0c040;
+  margin-bottom: 10px;
+}
+
+.price {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.currentPrice {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.oldPrice {
+  font-size: 1.2rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.description {
+  margin: 20px 0;
+  color: #555;
+}
+
+.addToCart {
+  background-color: #0070f3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  align-content: center;
+}
+
+.addToCart:hover {
+  background-color: #005bb5;
+}
+
+.meta {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #0070f3;
+}
+
+@media(max-width: 760px){
+  .content{
+    flex-direction: column;
+  }
+  .container{
+    height: 100%;
+  }
+}
+
+
+
+
+
+.abcd {
+  /* border: 1px solid black; */
+  padding: 60px 150px;
+  height: 100%;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(224, 224, 224);
+}
+.efgh {
+  /* border: 1px solid black; */
+  padding: 30px 20px;
+}
+@media (max-width: 600px) {
+  .abcd {
+    padding: 50px 50px;
+  }
+}
+@media (max-width: 400px) {
+  .abcd {
+    padding: 30px 30px;
+  }
+}

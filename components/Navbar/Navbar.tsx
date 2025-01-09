@@ -30,8 +30,8 @@ const Navbar = () => {
             <span className={styles.name_and_icon}>
               {/* <TbPhoneCall className="text-lg" /> (+92340)6044359 */}
               <TbPhoneCall className="text-lg" />
-              <Link href="03406044359">
-                03406044359
+              <Link href='https://wa.me/+923406044359'>
+                 Call
               </Link>
             </span>
           </div>
@@ -65,8 +65,9 @@ const Navbar = () => {
               </span>
             </Link>
             <Link href={"/cart"}>
-              <span className={styles.name_and_icon}>
+              <span className={styles.name_and_icon2}>
                 Cart <FaOpencart className="text-lg" />
+              <span className={styles.i_vel}>0</span>
               </span>
             </Link>
           </div>
