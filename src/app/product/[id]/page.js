@@ -1,10 +1,10 @@
-
+'use client'
 import Image from "next/image";
 import styles from "./ProductDetails.module.css";
 import { FaOpencart } from "react-icons/fa";
 import Navbar from "../../../../components/Navbar/Navbar";
 import Footer from "../../../../components/Footer/Footer";
-
+import { useCart } from '../../contaxt/cartcontaxt';
 const prod = [
   {
     id: "1",
@@ -16,6 +16,7 @@ const prod = [
     image: "/images/file-one/CantileverChair.png",
     categories: ["Furniture", "Living Room"],
     tags: ["Modern", "Comfortable"],
+
   },
   {
     id: "2",
@@ -165,6 +166,7 @@ const prod = [
 
 export default function ProductDetails({ params }) {
   const { id } = params;
+  const { dispatch } = useCart();
 
   const product = prod.find((item) => item.id === id);
 
@@ -172,6 +174,9 @@ export default function ProductDetails({ params }) {
     return <p>Product not found</p>;
   }
 
+  const addToCart = () => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
   return (
     <div>
       <Navbar/>
@@ -211,7 +216,7 @@ export default function ProductDetails({ params }) {
             <span className={styles.oldPrice}>${product.oldPrice.toFixed(2)}</span>
           </div>
           <p className={styles.description}>{product.description}</p>
-          <button className={styles.addToCart} >Add To Cart  <FaOpencart className="text-lg"/></button>
+          <button className={styles.addToCart}  onClick={addToCart}>Add To Cart  <FaOpencart className="text-lg"/></button>
           <div className={styles.meta}>
             <p><strong>Categories:</strong> {product.categories.join(", ")}</p>
             <p><strong>Tags:</strong> {product.tags.join(", ")}</p>
