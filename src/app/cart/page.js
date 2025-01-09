@@ -1,7 +1,6 @@
 "use client";
-
-import Footer from "../../../components/Footer/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
+import Footer from "../../../components/Footer/Footer";
 import styles from './cart.module.css'
 import { useCart } from "../contaxt/cartcontaxt";
 import Link from "next/link";
@@ -23,7 +22,7 @@ export default function CartPage() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <div className={styles.abcd}>
         <div className={styles.efgh}>
           <h1 className="text-4xl font-semibold">Cart</h1>
@@ -35,25 +34,25 @@ export default function CartPage() {
       </div>
     <div className={styles.main_containar}>
       
-      <h1 className="text-3xl font-bold my-4">Your Cart</h1>
+      <h1 className="text-3xl font-bold my-4 text-center">Your Cart</h1>
       {cart.length === 0 ? (
-        <p>Your cart is empty. <Link href="/">Continue Shopping</Link></p>
+        <p className="text-center">Your cart is empty. <Link className="text-cyan-900 font-bold" href="/">Continue Shopping</Link></p>
       ) : (
         <div>
           <table className="table-auto w-full border-collapse border border-slate-400">
             <thead>
-              <tr>
-                <th className="border border-slate-300 px-4 py-2">Image</th>
-                <th className="border border-slate-300 px-4 py-2">Product</th>
-                <th className="border border-slate-300 px-4 py-2">Price</th>
-                <th className="border border-slate-300 px-4 py-2">Quantity</th>
-                <th className="border border-slate-300 px-4 py-2">Total</th>
-                <th className="border border-slate-300 px-4 py-2">Actions</th>
+              <tr className={styles.table_row}>
+                <th className={styles.table_heading}>Image</th>
+                <th className={styles.table_heading}>Product</th>
+                <th className={styles.table_heading}>Price</th>
+                <th className={styles.table_heading}>Quantity</th>
+                <th className={styles.table_heading}>Total</th>
+                <th className={styles.table_heading}>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
               {cart.map((item) => (
-                <tr key={item.id}>
+                <tr key={item.id} className={styles.table_body}>
                   <td className="border border-slate-300 px-4 py-2">
                     <img src={item.image} alt={item.name} width="80" />
                   </td>
@@ -83,7 +82,7 @@ export default function CartPage() {
               ))}
             </tbody>
           </table>
-          <div className="mt-4 text-right">
+          <div className="mt-10 mb-6 text-center">
             <h2 className="text-2xl font-bold">Total: ${calculateTotal()}</h2>
             <button className="bg-green-500 text-white px-4 py-2 rounded mt-2">
               Proceed to Checkout
