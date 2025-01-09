@@ -1,5 +1,4 @@
 
-'use client'
 import Image from "next/image";
 import styles from "./ProductDetails.module.css";
 import { FaOpencart } from "react-icons/fa";
@@ -175,7 +174,7 @@ export default function ProductDetails({ params }) {
 
   return (
     <div>
-      <Navbar cartValue={addCart}/>
+      <Navbar/>
       <div className={styles.abcd}>
         <div className={styles.efgh}>
           <h1 className="text-4xl font-semibold">Product Details</h1>
