@@ -28,8 +28,72 @@
   border: 1px solid black;
 }
 
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
 
-.table_heading{
-  border: 1px solid gainsboro; 
-  padding: 6px 9px;
+.image{
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+    text-align: center;
+  align-items: center;
+
+}
+.product{
+  border: 1px solid black;
+  padding: 10px;
+    display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.price{
+  border: 1px solid black;
+  padding: 10px;
+    display: flex;
+  flex-direction: column;
+    text-align: center;
+  align-items: center;
+}
+.quntity{
+  border: 1px solid black;
+  padding: 10px;
+    display: flex;
+  flex-direction: column;
+    text-align: center;
+  align-items: center;
+}
+.total{
+  border: 1px solid black;
+  padding: 10px;
+    display: flex;
+  flex-direction: column;
+    text-align: center;
+  align-items: center;
+}
+.action{
+  border: 1px solid black;
+  padding: 10px;
+    display: flex;
+  flex-direction: column;
+    text-align: center;
+  align-items: center;
+}
+.top{
+  padding: 5px;
+  border: 1px solid red;
+  font-weight: bolder;
+
+}
+.buttom{
+  padding: 5px;
+  border: 1px solid rgb(25, 0, 255);
+  font-size: small;
 }
