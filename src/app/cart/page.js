@@ -20,6 +20,7 @@ export default function CartPage() {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
+  
   return (
     <div>
       <Navbar/>
@@ -40,7 +41,9 @@ export default function CartPage() {
       <Link className="text-cyan-900 font-bold" href="/">
         Continue Shopping
       </Link>
+      
     </p>
+
   ) : (
     <div>
       <table className="table-auto w-full border-collapse border border-slate-400 text-sm md:text-base">
