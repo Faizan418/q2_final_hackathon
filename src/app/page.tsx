@@ -1,6 +1,5 @@
 import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header";
-
 import Section1 from "../../components/Section1/Section1";
 import Section2 from "../../components/Section2/Section2";
 import Section3 from "../../components/Section3/Section3";
@@ -11,6 +10,7 @@ import Section7 from "../../components/Section7/Section7";
 import Section8 from "../../components/Section8/Section8";
 import Section9 from "../../components/Section9/Section9";
 import Footer from "../../components/Footer/Footer";
+import Data from "../../components/Data/Data";
 
 export default function Home() {
   return (
@@ -27,6 +27,7 @@ export default function Home() {
       <Section8/>
       <Section9/>
       <Footer/>
+      <Data/>
   </div>
   );
 }
