@@ -27,7 +27,7 @@ export default function Home() {
       <Section8/>
       <Section9/>
       <Footer/>
-      <Data/>
+      <Data/> 
   </div>
   );
 }

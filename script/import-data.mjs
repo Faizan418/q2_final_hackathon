@@ -1,84 +1,37 @@
-import { createClient } from '@sanity/client';
-import axios from 'axios';
-import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import { client } from '@/sanity/lib/client'
+import Image from 'next/image';
+import React from 'react';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+const Data = async () => {
+    const query = await client.fetch(
+        `*[_type == "product"]{
+          name,
+          description,
+          "imageUrl": image.asset->url,
+          price
+        }`
+    );
 
-const client = createClient({
-  projectId: "xj5y6jbe",
-  dataset: "production",
-  token: "skHIlkU9qmJ2OLbul3CoxlZL3QCJdAZ3nuMZtDHYA6FcQ09CPUvnOWjkivAk8VXIoKjp4SQSV76SAvGc4aC9XheM5RfzRmXtchVtYW5dUYodY4vyWnX0gBFFa50ACQXsTVx6hP9yhfWr5KM6QWVBjP3RiDuWZZlXbdmYkF8DOt8fLbyrgZXT",
-  apiVersion: '2025-01-15',
-  useCdn: false,
-});
+    console.log(query);
 
-async function uploadImageToSanity(imageUrl) {
-  try {
-    console.log(`Uploading Image : ${imageUrl}`);
-    const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
-    const buffer = Buffer.from(response.data);
-    const asset = await client.assets.upload('image', buffer, {
-      filename: imageUrl.split('/').pop(),
-    });
-    console.log(`Image Uploaded Successfully : ${asset._id}`);
-    return asset._id;
-  } 
-  catch (error) {
-    console.error('Failed to Upload Image:', imageUrl, error);
-    return null;
-  }
-}
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 p-8">
+            {query.map((product) => (
+                <div key={product.name} className="border border-gray-300 rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
+                    <Image
+                        src={product.imageUrl}
+                        alt={product.name}
+                        height={150}
+                        width={150}
+                        className="rounded-md mx-auto"
+                    />
+                    <h2 className="text-lg font-semibold text-center mt-4">{product.name}</h2>
+                    <p className="text-gray-600 text-sm mt-2 text-center">{product.description}</p>
+                    <p className="text-green-600 font-bold text-center mt-2">Price: ${product.price}</p>
+                </div>
+            ))}
+        </div>
+    );
+};
 
-async function importData() {
-  try {
-    console.log('Fetching Product Data From API ...');
-
-    const response = await axios.get("https://next-ecommerce-template-4.vercel.app/api/product")
-    const products = response.data.products;
-
-    for (const item of products) {
-      console.log(`Processing Item: ${item.name}`);
-
-      let imageRef = null;
-      if (item.imagePath) {
-        imageRef = await uploadImageToSanity(item.imagePath);
-      }
-
-      const sanityItem = {
-        _type: 'product',
-        name: item.name,
-        category: item.category || null,
-        price: item.price,
-        description: item.description || '',
-        discountPercentage: item.discountPercentage || 0,
-        stockLevel: item.stockLevel || 0,
-        isFeaturedProduct: item.isFeaturedProduct,
-        image: imageRef
-          ? {
-              _type: 'image',
-              asset: {
-                _type: 'reference',
-                _ref: imageRef,
-              },
-            }
-          : undefined,
-      };
-
-      console.log(`Uploading ${sanityItem.category} - ${sanityItem.name} to Sanity !`);
-      const result = await client.create(sanityItem);
-      console.log(`Uploaded Successfully: ${result._id}`);
-      console.log("----------------------------------------------------------")
-      console.log("\n\n")
-    }
-
-    console.log('Data Import Completed Successfully !');
-  } catch (error) {
-    console.error('Error Importing Data : ', error);
-  }
-}
-
-importData();
+export default Data;  
