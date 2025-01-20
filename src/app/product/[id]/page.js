@@ -5,6 +5,7 @@ import { FaOpencart } from "react-icons/fa";
 import Navbar from "../../../../components/Navbar/Navbar";
 import Footer from "../../../../components/Footer/Footer";
 import { useCart } from '../../contaxt/cartcontaxt';
+import Swal from 'sweetalert2'
 const prod = [
   {
     id: "1",
@@ -175,6 +176,11 @@ export default function ProductDetails({ params }) {
   }
 
   const addToCart = () => {
+    Swal.fire({
+      title: "Add to Cart Successfully!",
+      icon: "success",
+      draggable: true
+    });
     dispatch({ type: "ADD_TO_CART", payload: product });
   };
   return (

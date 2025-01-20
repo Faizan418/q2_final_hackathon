@@ -22,7 +22,7 @@ const Data = async () => {
     console.log(query);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+        <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-1 gap-8 p-8">
             {query.map((product: Product) => (
                 <div key={product.name} className="border border-gray-300 rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
                     <Image
