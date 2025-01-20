@@ -28,6 +28,7 @@ export default function Home() {
       <Section9/>
       <Footer/>
       <Data/> 
+      
   </div>
   );
 }
