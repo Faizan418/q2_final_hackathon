@@ -4,6 +4,8 @@ import Footer from "../../../components/Footer/Footer";
 import { useCart } from "../contaxt/cartcontaxt";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import styles from './checkout.module.css'
+import Image from "next/image";
 
 export default function CheckoutPage() {
   const { cart } = useCart();
@@ -89,6 +91,15 @@ export default function CheckoutPage() {
   return (
     <div className="bg-gray-100 min-h-screen">
       <Navbar />
+      <div className={styles.abcd}>
+        <div className={styles.efgh}>
+          <h1 className="text-4xl font-semibold">Check Out</h1>
+          <p className="font-semibold">
+            Home . page{" "}
+            <span className="text-rose-600 font-bold">. Check Out</span>
+          </p>
+        </div>
+      </div>
       <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
         <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Checkout</h1>
         {cart.length === 0 ? (
@@ -212,6 +223,7 @@ export default function CheckoutPage() {
               {cart.map((item) => (
                 <li key={item.id} className="flex justify-between mb-2 text-gray-700">
                   <span>
+                    <Image src={item.image} alt={item.name} height={100} width={50}/>
                     {item.name} (x{item.quantity})
                   </span>
                   <span>${(item.price * item.quantity).toFixed(2)}</span>
