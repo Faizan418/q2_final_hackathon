@@ -1,3 +1,4 @@
+import Data from "../../../components/Data/Data";
 import Footer from "../../../components/Footer/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./products.module.css";
@@ -15,7 +16,9 @@ const page = () => {
           </p>
         </div>
       </div>
-      <div className={styles.main_container}></div>
+      <div className={styles.main_container}>
+        <Data/>
+      </div>
       <Footer />
     </div>
   );

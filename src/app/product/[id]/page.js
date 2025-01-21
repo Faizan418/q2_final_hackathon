@@ -6,6 +6,7 @@ import Navbar from "../../../../components/Navbar/Navbar";
 import Footer from "../../../../components/Footer/Footer";
 import { useCart } from '../../contaxt/cartcontaxt';
 import Swal from 'sweetalert2'
+
 const prod = [
   {
     id: "1",
@@ -183,6 +184,7 @@ export default function ProductDetails({ params }) {
     });
     dispatch({ type: "ADD_TO_CART", payload: product });
   };
+
   return (
     <div>
       <Navbar/>
@@ -195,8 +197,11 @@ export default function ProductDetails({ params }) {
           </p>
         </div>
       </div>
+
+
     <div className={styles.container}>
       <div className={styles.content}>
+        
         <div className={styles.imageSection}>
           <Image
             src={product.image}
@@ -206,11 +211,11 @@ export default function ProductDetails({ params }) {
             className={styles.image}
           />
           <div className={styles.thumbnailContainer}>
-            {/* Replace with actual thumbnails */}
             <Image src={product.image} alt="Thumbnail" width={80} height={80} className={styles.thumbnail} />
             <Image src={product.image} alt="Thumbnail" width={80} height={80} className={styles.thumbnail} />
             <Image src={product.image} alt="Thumbnail" width={80} height={80} className={styles.thumbnail} />
           </div>
+
         </div>
         <div className={styles.detailsSection}>
           <h1 className={styles.heading}>{product.name}</h1>

@@ -10,7 +10,6 @@ import Section7 from "../../components/Section7/Section7";
 import Section8 from "../../components/Section8/Section8";
 import Section9 from "../../components/Section9/Section9";
 import Footer from "../../components/Footer/Footer";
-import Data from "../../components/Data/Data";
 
 export default function Home() {
   return (
@@ -27,7 +26,6 @@ export default function Home() {
       <Section8/>
       <Section9/>
       <Footer/>
-      <Data/> 
       
   </div>
   );

@@ -20,6 +20,8 @@ export default function CartPage() {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
+  // const val = cart.length
+  
   
   return (
     <div>
@@ -94,9 +96,11 @@ export default function CartPage() {
 
           <div className="mt-10 mb-6 text-center">
             <h2 className="text-2xl font-bold">Total: ${calculateTotal()}</h2>
+            <Link href="./checkout">
             <button className="bg-green-500 text-white px-4 py-2 rounded mt-2">
               Proceed to Checkout
             </button>
+            </Link>
           </div>
         </div>
       )}
