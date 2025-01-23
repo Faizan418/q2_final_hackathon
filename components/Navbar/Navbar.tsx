@@ -16,8 +16,8 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const [iLength, setiLength] = useState(0)
-  
+  const iLength = 0
+
 
   return (
     <div className={styles.main_container}>
