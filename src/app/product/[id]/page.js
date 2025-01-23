@@ -7,6 +7,7 @@ import Footer from "../../../../components/Footer/Footer";
 import { useCart } from '../../contaxt/cartcontaxt';
 import Swal from 'sweetalert2'
 
+
 const prod = [
   {
     id: "1",
@@ -185,6 +186,8 @@ export default function ProductDetails({ params }) {
     dispatch({ type: "ADD_TO_CART", payload: product });
   };
 
+
+
   return (
     <div>
       <Navbar/>
@@ -227,7 +230,7 @@ export default function ProductDetails({ params }) {
             <span className={styles.oldPrice}>${product.oldPrice.toFixed(2)}</span>
           </div>
           <p className={styles.description}>{product.description}</p>
-          <button className={styles.addToCart}  onClick={addToCart}>Add To Cart  <FaOpencart className="text-lg"/></button>
+          <button className={styles.addToCart} onClick={addToCart}>Add To Cart  <FaOpencart className="text-lg"/></button>
           <div className={styles.meta}>
             <p><strong>Categories:</strong> {product.categories.join(", ")}</p>
             <p><strong>Tags:</strong> {product.tags.join(", ")}</p>

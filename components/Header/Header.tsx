@@ -18,7 +18,7 @@ const Header = () => {
           <h3 className="text-rose-600 font-bold mb-5">
             Best Furniture For Your Castle...
           </h3>
-          <h1 className=" font-bold mb-5 text-4xl">
+          <h1 className=" font-bold mb-5 text-4xl font-Josefin Sans">
             New Furniture Collection <br /> Trends in 2024
           </h1>
           <p className="text-gray-400 text-sm mb-5">

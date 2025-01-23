@@ -16,6 +16,9 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const [iLength, setiLength] = useState(0)
+  
+
   return (
     <div className={styles.main_container}>
       <div className={styles.container}>
@@ -24,7 +27,7 @@ const Navbar = () => {
             <span className={styles.name_and_icon}>
               <IoMailOutline className="text-lg" />
               <Link href="mailto:muhammadf4060@gmail.com">
-                G-Mail
+              muhammadf4060@gmail.com
               </Link>
             </span>
             <span className={styles.name_and_icon}>
@@ -56,18 +59,18 @@ const Navbar = () => {
             </span>
             <Link href={"/login"}>
               <span className={styles.name_and_icon}>
-                signup <IoIosContact className="text-lg" />
+                Signup <IoIosContact className="text-2xl" />
               </span>
             </Link>
             <Link href={"/wishList"}>
               <span className={styles.name_and_icon}>
-                Wishlist <CiHeart className="text-lg" />
+              <CiHeart className="text-2xl font-bold" />
               </span>
             </Link>
             <Link href={"/cart"}>
               <span className={styles.name_and_icon2}>
-                Cart <FaOpencart className="text-lg" />
-              <span className={styles.i_vel}>0</span>
+                <FaOpencart className="text-2xl font-bold" />
+              <span className={styles.i_vel}>{iLength}</span>
               </span>
             </Link>
           </div>

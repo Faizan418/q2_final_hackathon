@@ -1,6 +1,7 @@
 import styles from "./Section4.module.css";
 import Image from "next/image";
 
+
 const Section4 = () => {
   return (
     <div className={styles.main_containar}>
@@ -35,7 +36,7 @@ const Section4 = () => {
               </div>
             </div>
             <div className={styles.btn_div}>
-              <button className={styles.btn1} type="button">
+              <button className={styles.btn1}>
                 Add to Cart
               </button>
               <span className="text-sm font-semibold">

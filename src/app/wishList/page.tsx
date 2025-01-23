@@ -15,7 +15,11 @@ const page = () => {
           </p>
         </div>
       </div>
-      <div>contant</div>
+      <div className="h-screen w-screen text-center content-center justify-center ">
+
+          <p className="text-5xl font-bold"> 404 not found </p>    
+
+      </div>
       <Footer />
     </div>
   );
