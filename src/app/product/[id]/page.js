@@ -8,6 +8,7 @@ import { useCart } from '../../contaxt/cartcontaxt';
 import Swal from 'sweetalert2'
 
 
+
 const prod = [
   {
     id: "1",
@@ -187,7 +188,6 @@ export default function ProductDetails({ params }) {
   };
 
 
-
   return (
     <div>
       <Navbar/>
@@ -237,9 +237,9 @@ export default function ProductDetails({ params }) {
           </div>
           <div className={styles.share}>
             <strong>Share:</strong>
-            <span className={styles.icon}>😉</span>
-            <span className={styles.icon}>😉</span>
-            <span className={styles.icon}>😉</span>
+            <span className={styles.icon}>⏰</span>
+            <span className={styles.icon}>⏰</span>
+            <span className={styles.icon}>⏰</span>
           </div>
         </div>
       </div>

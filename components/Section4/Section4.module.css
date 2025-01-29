@@ -71,8 +71,9 @@
 }
 
 .btn1:hover {
-  width: 70%;
+  /* width: 70%; */
   transition: ease-in 0.4s;
+  background-color: #df5858;
 }
 
 .btn1:active {

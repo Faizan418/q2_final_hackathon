@@ -20,12 +20,10 @@ export default function CartPage() {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
-  // const val = cart.length
-  
-  
+
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className={styles.abcd}>
         <div className={styles.efgh}>
           <h1 className="text-4xl font-semibold">Cart</h1>
