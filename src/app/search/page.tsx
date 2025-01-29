@@ -8,7 +8,7 @@ const SearchPage = () => {
 
   return (
     <div>
-      <h1>Search Results for "{query}"</h1>
+      <h1>Search Results for &#34{query}&#34</h1>
       {/* Add logic to fetch and display results */}
     </div>
   );
