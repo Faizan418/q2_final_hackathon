@@ -124,7 +124,7 @@ const Page = () => {
 
             <p className={styles.last_link}>
               Don&#39;t have an account?{" "}
-              <Link className="hover:text-sky-700" href="/signup">
+              <Link className="hover:text-sky-500 text-blue-700" href="/signup">
                 Create account
               </Link>
             </p>

@@ -6,46 +6,17 @@ export default function LandingPage() {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-            backgroundImage: "url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fcode.market%2Fproduct%2Fhekto-ecommerce-xd-template&psig=AOvVaw0K8qxywv_W-O0Zt5-HOsjS&ust=1738360820469000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCND97vC4nosDFQAAAAAdAAAAABAE')",
-            background: "lightpink",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            fontFamily: "Arial, sans-serif",
-            color: "white",
-            textShadow: "2px 2px 8px rgba(0, 0, 0, 0.3)" // Added text shadow for better readability
-        }}>
-            <h1 style={{ fontSize: "3rem", fontWeight: "bold", marginBottom: "20px", padding: "20px" }}>
+        <div className="flex flex-col justify-center items-center h-screen bg-cover bg-center text-white font-sans" 
+            style={{ background: "lightpink" }}> {/* Proper image URL here */}
+            <h1 className="text-4xl font-bold mb-5 text-shadow-lg">
                 Welcome to Hekto
             </h1>
-            <p style={{
-                fontSize: "1.2rem", 
-                maxWidth: "600px", 
-                textAlign: "center", 
-                marginBottom: "30px",
-                fontWeight: "lighter",
-                padding: "20px"
-            }}>
+            <p className="text-xl max-w-xl text-center mb-8 font-light p-5">
                 Discover the Best Furniture for Your Home. High-quality furniture with the best deals. Transform your space with elegance.
             </p>
             <Link href="/login"
-                style={{
-                    padding: "12px 24px",
-                    background: isHovered ? "#0056b3" : "#007bff",
-                    color: "white",
-                    textDecoration: "none",
-                    borderRadius: "8px",
-                    fontSize: "1.2rem",
-                    marginTop: "20px",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    transition: "background 0.3s ease",
-                    cursor: "pointer"
-                }}
+                className={`px-6 py-3 rounded-lg text-lg mt-5 shadow-md transition-all duration-300 ease-in-out 
+                    ${isHovered ? 'bg-blue-700' : 'bg-blue-500'} hover:bg-blue-600`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
