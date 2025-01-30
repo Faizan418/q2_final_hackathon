@@ -9,32 +9,38 @@
   height: 100%;
   padding: 0px px;
   display: flex;
+  /* border: 1px solid black; */
 }
 .div_left {
   width: 50%;
   display: flex;
   justify-content: right;
   align-items: center;
+  /* border: 1px solid black; */
 }
 .div_right {
   width: 50%;
   display: flex;
   justify-content: left;
   align-items: center;
+  /* border: 1px solid black; */
 }
 .details_containar {
   width: 500px;
+  /* border: 1px solid black; */
 }
 .tital_heading {
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 30px;
+  /* border: 1px solid black; */
 }
 .tital_pera {
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 30px;
   color: red;
+  /* border: 1px solid black; */
 }
 ._div1,
 ._div2 {
@@ -42,12 +48,14 @@
   margin-bottom: 16px;
   display: flex;
   gap: 8px;
+  /* border: 1px solid black; */
 }
 .info_div {
   font-size: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  /* border: 1px solid black; */
 }
 .btn_div {
   display: flex;
@@ -56,6 +64,7 @@
   align-items: center;
   margin-bottom: 30px;
   justify-content: left;
+  /* border: 1px solid black; */
 }
 .btn1 {
   background-color: #db4444;
@@ -66,7 +75,7 @@
   width: 110px;
   font-weight: 600;
   border-radius: 4px;
-  width: 35%;
+  width: 200px;
   /* border: 1px solid black; */
 }
 
@@ -96,10 +105,14 @@
   }
   .div_left {
     width: 100%;
+    /* border: 1px solid green; */
+    justify-content: center;
   }
   .div_right {
     width: 100%;
     margin-top: 30px;
+    /* border: 1px solid green; */
+    justify-content: center;
   }
 }
 @media (max-width: 500px) {

@@ -16,8 +16,7 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const iLength = 0
-
+  // const iLength = 0
 
   return (
     <div className={styles.main_container}>
@@ -27,14 +26,14 @@ const Navbar = () => {
             <span className={styles.name_and_icon}>
               <IoMailOutline className="text-lg" />
               <Link href="mailto:muhammadf4060@gmail.com">
-              muhammadf4060@gmail.com
+                muhammadf4060@gmail.com
               </Link>
             </span>
             <span className={styles.name_and_icon}>
               {/* <TbPhoneCall className="text-lg" /> (+92340)6044359 */}
               <TbPhoneCall className="text-lg" />
               <Link href='https://wa.me/+923406044359'>
-                 Call
+              (+92340)6044359
               </Link>
             </span>
           </div>
@@ -70,7 +69,7 @@ const Navbar = () => {
             <Link href={"/cart"}>
               <span className={styles.name_and_icon2}>
                 <FaOpencart className="text-2xl font-bold" />
-              <span className={styles.i_vel}>{iLength}</span>
+              <span className={styles.i_vel}></span>
               </span>
             </Link>
           </div>

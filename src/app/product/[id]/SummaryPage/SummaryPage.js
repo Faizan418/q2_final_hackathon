@@ -10,8 +10,6 @@ export default function SummaryPage() {
   const updateQuantity = (id, quantity) => {
     dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });
   };
-// let itm = cart.length;
-//   console.log(itm)
 
   
   return (

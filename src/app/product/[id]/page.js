@@ -1,13 +1,11 @@
 'use client'
 import Image from "next/image";
 import styles from "./ProductDetails.module.css";
-import { FaOpencart } from "react-icons/fa";
+import { FaOpencart, FaFacebook, FaWhatsapp,FaInstagram } from "react-icons/fa";
 import Navbar from "../../../../components/Navbar/Navbar";
 import Footer from "../../../../components/Footer/Footer";
 import { useCart } from '../../contaxt/cartcontaxt';
 import Swal from 'sweetalert2'
-
-
 
 const prod = [
   {
@@ -237,9 +235,9 @@ export default function ProductDetails({ params }) {
           </div>
           <div className={styles.share}>
             <strong>Share:</strong>
-            <span className={styles.icon}>⏰</span>
-            <span className={styles.icon}>⏰</span>
-            <span className={styles.icon}>⏰</span>
+            <span className={styles.icon}><FaFacebook /></span>
+            <span className={styles.icon}><FaWhatsapp /></span>
+            <span className={styles.icon}><FaInstagram /></span>
           </div>
         </div>
       </div>

@@ -1,8 +1,13 @@
+// 'use client';
 import Footer from "../../../components/Footer/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./wishList.module.css";
 
+
+// import { useState } from "react";
+
 const page = () => {
+  // const [value, setvalue] = useState(0)
   return (
     <div>
       <Navbar />
@@ -18,6 +23,10 @@ const page = () => {
       <div className="h-screen w-screen text-center content-center justify-center ">
 
           <p className="text-5xl font-bold"> 404 not found </p>    
+
+           {/* <button type="button" onClick={()=> setvalue(value + 1)}>+</button>
+           <p>{value}</p> 
+           <button type="button" onClick={()=> setvalue(value - 1)}>-</button>  */}
 
       </div>
       <Footer />
