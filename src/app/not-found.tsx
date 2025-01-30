@@ -16,7 +16,7 @@ export default function not_found() {
       </div>
       <p className=" mb-5">oops! The Page you requested was not found!</p>
 
-      <Link href="/" className="text-blue-700 text-lg hover:underline mt-5">
+      <Link href="/home" className="text-blue-700 text-lg hover:underline mt-5">
         Return Home 😀
       </Link>
     </div>

@@ -87,7 +87,7 @@ const Navbar = () => {
             }`}
           >
             <ul className={styles.ul_div}>
-              <Link href="/">
+              <Link href="/home">
                 <li className={styles.li}>Home</li>
               </Link>
               <Link href="/about">

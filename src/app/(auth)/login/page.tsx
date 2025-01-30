@@ -58,7 +58,7 @@ const Page = () => {
       setError("");
       setSuccess("Login successful! Redirecting...");
       setTimeout(() => {
-        window.location.href = "/"; // Redirect to homepage
+        window.location.href = "/home"; // Redirect to homepage
       }, 2000);
     } else {
       setError("Invalid email or password.");

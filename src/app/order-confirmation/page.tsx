@@ -23,7 +23,7 @@ export default function OrderConfirmationPage() {
           completed within 3-6 hours. <br /> You will receive an email confirmation
           when your order is completed.
         </p>
-        <Link href='/'>
+        <Link href='/home'>
         <button className="bg-rose-600 hover:bg-rose-500 text-white font-bold py-2 px-4 rounded">
           Continue Shopping
         </button>
