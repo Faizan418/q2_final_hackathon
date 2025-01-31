@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from "react";
+
 import styles from "./LandingNavbar.module.css";
 
 const LandingNavbar = () => {
@@ -13,7 +12,7 @@ const LandingNavbar = () => {
             <h1 className={styles.title}>Hekto</h1>
           </div>        
         </div>
-        
+
       </div>
     </div>
   );
