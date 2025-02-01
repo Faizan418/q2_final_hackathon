@@ -10,9 +10,7 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend)
 
 export default function Dashboard() {
   const [collapsed, setCollapsed] = useState(false);
-//   const [orders, setOrders] = useState([]);
   const [search, setSearch] = useState("");
-//   const [authenticated, setAuthenticated] = useState(true);
   const [activeSection, setActiveSection] = useState("dashboard");
   const [adminName, setAdminName] = useState("Admin");
   const [storeName, setStoreName] = useState("My Store");
