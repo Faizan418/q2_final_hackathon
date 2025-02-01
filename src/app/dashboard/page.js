@@ -15,20 +15,26 @@ export default function Dashboard() {
   const [collapsed, setCollapsed] = useState(false);
   const [search, setSearch] = useState('');
   const [activeSection, setActiveSection] = useState('dashboard');
-  const [adminName, setAdminName] = useState(localStorage.getItem('adminName') || 'Admin');
-  const [storeName, setStoreName] = useState(localStorage.getItem('storeName') || 'My Store');
+  const [adminName, setAdminName] = useState('');
+  const [storeName, setStoreName] = useState('');
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   
   useEffect(() => {
-    localStorage.setItem('adminName', adminName);
-    localStorage.setItem('storeName', storeName);
-  }, [adminName, storeName]);
-
-  useEffect(() => {
-    setAuthenticated(localStorage.getItem('authToken') ? true : false);
+    if (typeof window !== "undefined") {
+      setAdminName(localStorage.getItem('adminName') || 'Admin');
+      setStoreName(localStorage.getItem('storeName') || 'My Store');
+      setAuthenticated(localStorage.getItem('authToken') ? true : false);
+    }
   }, []);
+  
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem('adminName', adminName);
+      localStorage.setItem('storeName', storeName);
+    }
+  }, [adminName, storeName]);
 
   useEffect(() => {
     fetch('/api/orders') // Replace with actual API endpoint
@@ -43,10 +49,7 @@ export default function Dashboard() {
   if (!authenticated) {
     return <div className='flex h-screen items-center justify-center text-xl font-bold'>Access Denied</div>;
   }
-  if (typeof window !== "undefined") {
-    // Access localStorage only in the browser
-    const data = localStorage.getItem("yourItem");
-  }
+
   const data = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
     datasets: [
