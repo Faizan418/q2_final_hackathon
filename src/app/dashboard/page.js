@@ -8,6 +8,9 @@ import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
 
+// Force dynamic rendering to avoid static export errors
+export const dynamic = 'force-dynamic';
+
 export default function Dashboard() {
   const [collapsed, setCollapsed] = useState(false);
   const [search, setSearch] = useState('');
@@ -16,13 +19,16 @@ export default function Dashboard() {
   const [storeName, setStoreName] = useState(localStorage.getItem('storeName') || 'My Store');
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
-  
-  const authenticated = true; // Replace with actual authentication logic
+  const [authenticated, setAuthenticated] = useState(false);
   
   useEffect(() => {
     localStorage.setItem('adminName', adminName);
     localStorage.setItem('storeName', storeName);
   }, [adminName, storeName]);
+
+  useEffect(() => {
+    setAuthenticated(localStorage.getItem('authToken') ? true : false);
+  }, []);
 
   useEffect(() => {
     fetch('/api/orders') // Replace with actual API endpoint
@@ -37,7 +43,10 @@ export default function Dashboard() {
   if (!authenticated) {
     return <div className='flex h-screen items-center justify-center text-xl font-bold'>Access Denied</div>;
   }
-
+  if (typeof window !== "undefined") {
+    // Access localStorage only in the browser
+    const data = localStorage.getItem("yourItem");
+  }
   const data = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
     datasets: [
