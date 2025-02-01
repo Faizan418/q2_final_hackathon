@@ -56,9 +56,9 @@ const Navbar = () => {
                 <option value="IRA">IRA</option>
               </select>
             </span>
-            <Link href={"/login"}>
+            <Link href={"/dashboard"}>
               <span className={styles.name_and_icon}>
-                Signup <IoIosContact className="text-2xl" />
+                 <IoIosContact className="text-2xl" />
               </span>
             </Link>
             <Link href={"/wishList"}>
