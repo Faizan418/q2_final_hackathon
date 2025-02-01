@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { BarChart, ShoppingCart, Users, Settings, LayoutDashboard, Menu as MenuIcon } from "lucide-react";
 import { motion } from "framer-motion";
@@ -10,9 +10,9 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend)
 
 export default function Dashboard() {
   const [collapsed, setCollapsed] = useState(false);
-  const [orders, setOrders] = useState([]);
+//   const [orders, setOrders] = useState([]);
   const [search, setSearch] = useState("");
-  const [authenticated, setAuthenticated] = useState(true);
+//   const [authenticated, setAuthenticated] = useState(true);
   const [activeSection, setActiveSection] = useState("dashboard");
   const [adminName, setAdminName] = useState("Admin");
   const [storeName, setStoreName] = useState("My Store");
