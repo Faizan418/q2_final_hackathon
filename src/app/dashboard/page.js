@@ -16,7 +16,6 @@ export default function Dashboard() {
   const [storeName, setStoreName] = useState(localStorage.getItem('storeName') || 'My Store');
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
-  const [salesData, setSalesData] = useState([30, 50, 70, 100, 90]);
   
   const authenticated = true; // Replace with actual authentication logic
   
@@ -44,7 +43,7 @@ export default function Dashboard() {
     datasets: [
       {
         label: 'Sales',
-        data: salesData,
+        data: [30, 50, 70, 100, 90],
         backgroundColor: ['#4F46E5', '#6366F1', '#A78BFA', '#F59E0B', '#EF4444'],
       },
     ],
