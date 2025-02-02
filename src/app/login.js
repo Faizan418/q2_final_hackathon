@@ -5,7 +5,7 @@ export default function Login() {
 
     const handleLogin = () => {
         // Dummy token save karna
-        localStorage.setItem("authToken", "dummy_token_123");
+        localStorage.setItem("faizan", "12345");
         router.push("/dashboard"); // Redirect to dashboard
     };
 

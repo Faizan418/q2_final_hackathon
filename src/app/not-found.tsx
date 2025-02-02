@@ -9,6 +9,7 @@ export default function not_found() {
       <div className="border justify-center flex">
         <Image
           alt="Page not found"
+
           src="/images/not-found/not.png"
           width={400}
           height={100}

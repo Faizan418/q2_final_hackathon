@@ -33,17 +33,16 @@ const cartReducer = (state, action) => {
 
 // Provider component
 export const CartProvider = ({ children }) => {
-  const [cart, dispatch] = useReducer(cartReducer, []);
-
-  // Local storage se cart load karna
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      dispatch({ type: "LOAD_CART", payload: JSON.parse(storedCart) });
+  const [cart, dispatch] = useReducer(cartReducer, [], () => {
+    // Initial state ko localStorage se load karna
+    if (typeof window !== "undefined") {
+      const storedCart = localStorage.getItem("cart");
+      return storedCart ? JSON.parse(storedCart) : [];
     }
-  }, []);
+    return [];
+  });
 
-  // Cart ko local storage me save karna
+  // Cart ko localStorage me save karna
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
