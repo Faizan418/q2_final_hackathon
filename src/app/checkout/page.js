@@ -4,13 +4,18 @@ import Footer from "../../../components/Footer/Footer";
 import { useCart } from "../contaxt/cartcontaxt";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import styles from './checkout.module.css'
+import styles from './checkout.module.css';
 import Image from "next/image";
+import { client } from "@/sanity/lib/client";
+
+
 
 export default function CheckoutPage() {
   const { cart } = useCart();
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
     email: "",
     address: "",
     city: "",
@@ -25,7 +30,7 @@ export default function CheckoutPage() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handlePaymentChange = (e) => {
@@ -34,19 +39,21 @@ export default function CheckoutPage() {
 
   const handleCardInputChange = (e) => {
     const { name, value } = e.target;
-    setCardDetails({ ...cardDetails, [name]: value });
+    setCardDetails((prev) => ({ ...prev, [name]: value }));
   };
 
   const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    return cart
+      .reduce((total, item) => total + item.price * item.quantity, 0)
+      .toFixed(2);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate shipping details
-    const { name, email, address, city, postalCode } = formData;
-    if (!name || !email || !address || !city || !postalCode) {
+
+    const { firstName, lastName, phone, email, address, city, postalCode } = formData;
+    if (!firstName || !lastName || !phone || !email || !address || !city || !postalCode) {
       Swal.fire({
         title: "Incomplete Form!",
         text: "Please fill out all the shipping details.",
@@ -55,7 +62,7 @@ export default function CheckoutPage() {
       return;
     }
 
-    // Validate payment method
+    
     if (!paymentMethod) {
       Swal.fire({
         title: "Payment Method Required!",
@@ -65,7 +72,7 @@ export default function CheckoutPage() {
       return;
     }
 
-    // Validate card details if payment method is card
+    
     if (
       paymentMethod === "card" &&
       (!cardDetails.cardNumber || !cardDetails.expiryDate || !cardDetails.cvv)
@@ -78,14 +85,43 @@ export default function CheckoutPage() {
       return;
     }
 
-    // Success message
-    Swal.fire({
-      title: "Order Placed Successfully!",
-      text: "Your order has been placed. Thank you for shopping with us!",
-      icon: "success",
-    }).then(() => {
-      window.location.href = "/order-confirmation";
-    });
+  
+    const orderData = {
+      _type: 'order',
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      address: formData.address,
+      city: formData.city,
+      postalCode: formData.postalCode,
+      phone: formData.phone,
+      email: formData.email,
+      cartItems: cart.map((item) => ({
+        _type: 'reference',
+        _ref: item._id, 
+      })),
+      total: parseFloat(calculateTotal()),
+      orderStatus: 'pending',
+    };
+    console.log(orderData);
+    
+
+    try {
+      client.create(orderData);
+      Swal.fire({
+        title: "Order Placed Successfully!",
+        text: "Your order has been placed. Thank you for shopping with us!",
+        icon: "success",
+      }).then(() => {
+        window.location.href = "/order-confirmation";
+      });
+    } catch (error) {
+      console.error("Order creation error:", error);
+      Swal.fire({
+        title: "Error!",
+        text: "An error occurred while placing your order. Please try again later.",
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -109,11 +145,31 @@ export default function CheckoutPage() {
             <h2 className="text-xl font-semibold mb-4 text-gray-800">Shipping Details</h2>
             <div className="space-y-4 mb-6">
               <div>
-                <label className="block text-sm font-medium text-gray-600">Name</label>
+                <label className="block text-sm font-medium text-gray-600">First Name</label>
                 <input
                   type="text"
-                  name="name"
-                  value={formData.name}
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:ring focus:ring-blue-300"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  className="w-full border border-gray-300 p-3 rounded-lg focus:ring focus:ring-blue-300"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600">Phone</label>
+                <input
+                  type="text"
+                  name="phone"
+                  value={formData.phone}
                   onChange={handleInputChange}
                   className="w-full border border-gray-300 p-3 rounded-lg focus:ring focus:ring-blue-300"
                 />
@@ -223,7 +279,7 @@ export default function CheckoutPage() {
               {cart.map((item) => (
                 <li key={item.id} className="flex justify-between mb-2 text-gray-700">
                   <span>
-                    <Image src={item.image} alt={item.name} height={100} width={50}/>
+                    <Image src={item.image} alt={item.name} height={100} width={50} />
                     {item.name} (x{item.quantity})
                   </span>
                   <span>${(item.price * item.quantity).toFixed(2)}</span>

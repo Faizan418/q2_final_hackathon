@@ -23,7 +23,7 @@ export default function Dashboard() {
   
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setAdminName(localStorage.getItem('adminName') || 'Admin');
+      setAdminName(localStorage.getItem('adminName') || 'Faizan');
       setStoreName(localStorage.getItem('storeName') || 'My Store');
       setAuthenticated(localStorage.getItem('authToken') ? true : false);
     }
@@ -39,7 +39,7 @@ export default function Dashboard() {
   useEffect(() => {
     fetch('/api/orders') // Replace with actual API endpoint
       .then(res => res.json())
-      .then(data => {
+      .then(data => {  
         setOrders(data);
         setLoadingOrders(false);
       })
