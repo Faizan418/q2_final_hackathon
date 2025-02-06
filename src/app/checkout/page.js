@@ -50,8 +50,8 @@ export default function CheckoutPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
+  
+    // ✅ Validate shipping details  
     const { firstName, lastName, phone, email, address, city, postalCode } = formData;
     if (!firstName || !lastName || !phone || !email || !address || !city || !postalCode) {
       Swal.fire({
@@ -61,8 +61,8 @@ export default function CheckoutPage() {
       });
       return;
     }
-
-    
+  
+    // ✅ Validate payment method  
     if (!paymentMethod) {
       Swal.fire({
         title: "Payment Method Required!",
@@ -71,8 +71,8 @@ export default function CheckoutPage() {
       });
       return;
     }
-
-    
+  
+    // ✅ Validate card details if payment method is card  
     if (
       paymentMethod === "card" &&
       (!cardDetails.cardNumber || !cardDetails.expiryDate || !cardDetails.cvv)
@@ -84,29 +84,30 @@ export default function CheckoutPage() {
       });
       return;
     }
-
   
+    // ✅ **Order Data pehle declare karo**
     const orderData = {
       _type: 'order',
       firstName: formData.firstName,
       lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
       address: formData.address,
       city: formData.city,
       postalCode: formData.postalCode,
-      phone: formData.phone,
-      email: formData.email,
-      cartItems: cart.map((item) => ({
-        _type: 'reference',
-        _ref: item._id, 
-      })),
       total: parseFloat(calculateTotal()),
       orderStatus: 'pending',
+      cartItems: cart.map((item) => ({
+        _type: "productReference",
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+      })),
     };
-    console.log(orderData);
-    
-
+  
+    // ✅ **Order ko Sanity pe send karo**
     try {
-      client.create(orderData);
+      await client.create(orderData);
       Swal.fire({
         title: "Order Placed Successfully!",
         text: "Your order has been placed. Thank you for shopping with us!",
@@ -123,6 +124,7 @@ export default function CheckoutPage() {
       });
     }
   };
+  
 
   return (
     <div className="bg-gray-100 min-h-screen">

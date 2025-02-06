@@ -11,7 +11,7 @@ export default {
     { name: "city", type: "string", title: "City" },
     { name: "postalCode", type: "string", title: "Postal Code" },
     { name: "total", type: "number", title: "Total Amount" },
-    { name: "orderStatus", type: "string", title: "Order Status" },
+    { name: "orderStatus", type: "string", title: "Order Status", options: { list: ["pending", "completed", "shipped"] } },
     {
       name: "cartItems",
       title: "Cart Items",
