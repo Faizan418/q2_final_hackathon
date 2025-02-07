@@ -51,7 +51,7 @@ export default function CheckoutPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // ✅ Validate shipping details  
+ 
     const { firstName, lastName, phone, email, address, city, postalCode } = formData;
     if (!firstName || !lastName || !phone || !email || !address || !city || !postalCode) {
       Swal.fire({
@@ -62,7 +62,7 @@ export default function CheckoutPage() {
       return;
     }
   
-    // ✅ Validate payment method  
+  
     if (!paymentMethod) {
       Swal.fire({
         title: "Payment Method Required!",
@@ -72,7 +72,6 @@ export default function CheckoutPage() {
       return;
     }
   
-    // ✅ Validate card details if payment method is card  
     if (
       paymentMethod === "card" &&
       (!cardDetails.cardNumber || !cardDetails.expiryDate || !cardDetails.cvv)
@@ -85,7 +84,7 @@ export default function CheckoutPage() {
       return;
     }
   
-    // ✅ **Order Data pehle declare karo**
+
     const orderData = {
       _type: 'order',
       firstName: formData.firstName,
@@ -105,7 +104,7 @@ export default function CheckoutPage() {
       })),
     };
   
-    // ✅ **Order ko Sanity pe send karo**
+
     try {
       await client.create(orderData);
       Swal.fire({
